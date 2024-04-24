@@ -1,7 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import Pokemons from './Pokemons'
 
 import {
   createBrowserRouter,
@@ -9,13 +7,19 @@ import {
   Route,
 } from "react-router-dom";
 import PokemonDetail from './PokemonDetail';
+import Pokemons from './Pokemons'
 import Login from './Login';
 import CreateUser from './CreateUser';
+import HomePage from './HomePage';
 
 const router = createBrowserRouter([
   {
     path: '/pokemon/:pokemonId',
     element: <PokemonDetail />
+  },
+  {
+    path: '/pokemon',
+    element: <Pokemons />
   },
   {
     path: '/login',
@@ -27,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Pokemons />
+    element: <HomePage />
   },
 
 

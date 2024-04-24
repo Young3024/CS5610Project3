@@ -19,7 +19,7 @@ export default function PokemonDetail() {
 
     async function deletePokemon() {
         const response = await axios.delete('/api/pokemon/' + params.pokemonId)
-        navigate('/');
+        navigate('/pokemon');
     }
 
     // if(pokemonDetails.name) return (<div>Loading...</div>);

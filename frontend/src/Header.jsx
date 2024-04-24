@@ -28,14 +28,16 @@ export default function Header() {
     if(!activeUsername) {
 
         return (<div className='header'>
-            <Link to="/login" >Click here to login</Link>
-
+            <Link to="/" >HomePage</Link>
+            <Link to="/login" >Log in</Link>
+            <Link to="/register" >Sign up</Link>
         </div>)
 
     }
 
     return (
         <div className='header'>
+            <Link to="/" >HomePage</Link>
             <div >Welcome, {activeUsername}</div>
             <button onClick={logOutUser}>Log Out!</button>
         </div>

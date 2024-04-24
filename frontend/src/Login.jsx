@@ -23,7 +23,7 @@ export default function Login() {
         setErrorValue('');
         try {
             const response = await axios.post('/api/users/login', {username: usernameInput, password: passwordInput})
-            navigate('/');
+            navigate('/pokemon');
         } catch (e) {
             setErrorValue(e.response.data)
         }

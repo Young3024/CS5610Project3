@@ -9,7 +9,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser');
 
 
-const mongoDBEndpoint = 'mongodb+srv://hunter:banana2@seawebdevfall2021.ykjok.mongodb.net/?retryWrites=true&w=majority';
+const mongoDBEndpoint = 'mongodb+srv://yiycao:qZ0NFB2sYm1DIwLD@seattlewebdev.ny0yujc.mongodb.net/?retryWrites=true&w=majority&appName=SeattleWebDev';
 mongoose.connect(mongoDBEndpoint,  { useNewUrlParser: true });
 
 const db = mongoose.connection;
