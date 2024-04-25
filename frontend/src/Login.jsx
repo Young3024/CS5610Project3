@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import Header from './Header';
 
 export default function Login() {
     const [usernameInput, setUsernameInput] = useState('');
@@ -23,7 +24,7 @@ export default function Login() {
         setErrorValue('');
         try {
             const response = await axios.post('/api/users/login', {username: usernameInput, password: passwordInput})
-            navigate('/pokemon');
+            navigate('/entry');
         } catch (e) {
             setErrorValue(e.response.data)
         }
@@ -33,6 +34,7 @@ export default function Login() {
 
     return (
         <div>
+            <Header />
             <h1>Login</h1>
             {!!error && <h2>{error}</h2>}
             <div>

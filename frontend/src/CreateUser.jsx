@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import Header from './Header';
 
 export default function CreateUser() {
     const [usernameInput, setUsernameInput] = useState('');
@@ -22,7 +23,7 @@ export default function CreateUser() {
     async function submit() {
         try {
             const response = await axios.post('/api/users/register', {username: usernameInput, password: passwordInput})
-            navigate('/')
+            navigate('/entry')
         } catch (error) {
             console.log(error)
             setError(error.response.data)
@@ -32,6 +33,7 @@ export default function CreateUser() {
 
     return (
         <div>
+            <Header />
             <h1>Register New User</h1>
             {!!error && <h3>{error}</h3>}
             <div>

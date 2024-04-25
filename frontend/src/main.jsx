@@ -11,6 +11,7 @@ import Pokemons from './Pokemons'
 import Login from './Login';
 import CreateUser from './CreateUser';
 import HomePage from './HomePage';
+import Entries from './Entries'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/pokemon',
     element: <Pokemons />
+  },
+  {
+    path: '/entry',
+    element: <Entries />
   },
   {
     path: '/login',

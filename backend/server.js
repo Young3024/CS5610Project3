@@ -2,6 +2,7 @@ const express = require('express');
 const helper = require('./apis/helper');
 const pokemon = require('./apis/pokemon')
 const users = require('./apis/user')
+const entry = require('./apis/entry')
 const app = express();
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use('/api/pokemon/', pokemon);
 app.use('/api/users/', users)
+app.use('/api/entry/', entry)
 
 
 
