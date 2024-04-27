@@ -44,7 +44,7 @@ export default function Login() {
                 <span>Password: </span><input type='text' value={passwordInput} onInput={setPassword}></input>
             </div>
 
-            <button onClick={submit}>Create Account/Login</button>
+            <button onClick={submit}>Let's roll!!</button>
         </div>
     )
 

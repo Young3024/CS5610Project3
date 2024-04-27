@@ -13,6 +13,8 @@ export default function Entries() {
         length: '',
     });
     const [error, setError] = useState('');
+    const [shareUsername, setShareUsername] = useState('');
+    const [shareError, setShareError] = useState('');
 
     async function getAllEntries() {
         const response = await axios.get('/api/entry/');
@@ -63,6 +65,22 @@ export default function Entries() {
         });
         setError('');
         await getAllEntries();
+    }
+
+    async function sharePasswords() {
+        if (!shareUsername) {
+            setShareError('Please enter a username');
+            return;
+        }
+
+        try {
+            const response = await axios.post('/api/helper/', { username: shareUsername });
+            setShareUsername('');
+            setShareError('');
+            console.log(response.data); // Handle success response
+        } catch (error) {
+            setShareError(error.response.data.message); // Handle error response
+        }
     }
 
     return (
@@ -126,6 +144,16 @@ export default function Entries() {
                 ))}
             </div>
             <button onClick={getAllEntries}>Check passwords stored</button>
+            <div>
+                <input
+                    value={shareUsername}
+                    onChange={(e) => setShareUsername(e.target.value)}
+                    type="text"
+                    placeholder="Enter username to share passwords"
+                />
+                <button onClick={sharePasswords}>Share Passwords</button>
+                {shareError && <div>{shareError}</div>}
+            </div>
         </div>
     );
 }

@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use('/api/pokemon/', pokemon);
 app.use('/api/users/', users)
 app.use('/api/entry/', entry)
+app.use('/api/helper/',helper)
 
 
 
