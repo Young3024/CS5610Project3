@@ -7,7 +7,7 @@ exports.EntrySchema = new Schema({
     },
     website: {
         type: String,
-        unique: true,
+        require: true,
     },
     password: {
         type: String,

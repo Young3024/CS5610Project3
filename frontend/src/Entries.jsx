@@ -138,7 +138,6 @@ export default function Entries() {
                 {entries.map((entry, index) => (
                     <div key={index}>
                         <div>{entry.website} ----- {entry.password} &nbsp;&nbsp;&nbsp;last updated time: {entry.timestamp}</div>
-                        {/* Include the date of last update here */}
                         <button onClick={() => deleteEntry(entry._id)}>Delete</button>
                     </div>
                 ))}

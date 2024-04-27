@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken')
 const Entry = require('../db/entry/entry.model');
 const User = require('../db/user/user.model');
 
@@ -7,7 +8,15 @@ const User = require('../db/user/user.model');
 router.post('/', async (req, res) => {
     try {
         const username = req.body.username;
-        const sender = req.cookies.username;
+        let sender = req.cookies.username;
+
+        let decryptedUsername;
+        try {
+            decryptedUsername = jwt.verify(sender, "HUNTERS_PASSWORD")
+        } catch(e) {
+            return res.status(404).send("Invalid request")
+        }
+        sender = decryptedUsername;
 
         // Check if the username exists
         const user = await User.findUserByUsername(username);
