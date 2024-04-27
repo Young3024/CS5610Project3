@@ -25,6 +25,9 @@ router.post('/login', async function(req, res) {
     try {
         const createUserResponse = await UserModel.findUserByUsername(username)
 
+        if (!createUserResponse) {
+            return res.status(404).send("User not found");
+        }
         console.log(createUserResponse)
         console.log(createUserResponse.password)
         console.log(password)
@@ -49,6 +52,10 @@ router.post('/register', async function(req, res) {
     
 
     try {
+        const user = await UserModel.findUserByUsername(username);
+
+        if (user) return res.status(409).send("Username already exists!!")
+
         if(!username || !password) {
             return res.status(409).send("Missing username or password")
         }

@@ -24,6 +24,11 @@ export default function Login() {
         setErrorValue('');
         try {
             const response = await axios.post('/api/users/login', {username: usernameInput, password: passwordInput})
+            if (response.data.success) {
+                navigate('/entry');
+            } else {
+                setErrorValue(response.data.message);
+            }
             navigate('/entry');
         } catch (e) {
             setErrorValue(e.response.data)

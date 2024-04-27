@@ -23,6 +23,11 @@ export default function CreateUser() {
     async function submit() {
         try {
             const response = await axios.post('/api/users/register', {username: usernameInput, password: passwordInput})
+            if (response.data.success) {
+                navigate('/entry');
+            } else {
+                setErrorValue(response.data.message);
+            }
             navigate('/entry')
         } catch (error) {
             console.log(error)

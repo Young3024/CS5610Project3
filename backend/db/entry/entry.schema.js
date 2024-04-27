@@ -12,6 +12,10 @@ exports.EntrySchema = new Schema({
     password: {
         type: String,
         require: true,
+    },
+    timestamp: {
+        type: Date,
+        default: Date.now
     }
 }, { collection : 'entries' });
 
